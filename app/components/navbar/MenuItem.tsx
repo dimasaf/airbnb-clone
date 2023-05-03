@@ -1,9 +1,9 @@
 "use client";
 
-interface MenuItemProps {
-  onClick: () => {};
+type MenuItemProps = {
+  onClick: () => void;
   label: string;
-}
+};
 
 const MenuItem = ({ label, onClick }: MenuItemProps) => {
   return (
