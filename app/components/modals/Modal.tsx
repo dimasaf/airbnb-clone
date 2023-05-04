@@ -5,7 +5,7 @@ import { IoMdClose } from "react-icons/io";
 
 import Button from "../Button";
 
-interface ModalProps {
+type ModalProps = {
   isOpen?: boolean;
   onClose: () => void;
   onSubmit: () => void;
@@ -16,7 +16,7 @@ interface ModalProps {
   disabled?: boolean;
   secondaryLabel?: string;
   secondaryAction?: () => void;
-}
+};
 
 const Modal = (props: ModalProps) => {
   const {

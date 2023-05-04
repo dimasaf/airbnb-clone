@@ -1,10 +1,10 @@
 "use client";
 
-interface HeadingProps {
+type HeadingProps = {
   center?: boolean;
   title: string;
   subtitle?: string;
-}
+};
 
 const Heading = ({ center, title, subtitle }: HeadingProps) => {
   return (

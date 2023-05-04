@@ -3,7 +3,7 @@
 import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
 import { BiDollar } from "react-icons/bi";
 
-interface InputProps {
+type InputProps = {
   id: string;
   disabled?: boolean;
   required?: boolean;
@@ -13,7 +13,7 @@ interface InputProps {
   errors: FieldErrors;
   label: string;
   register: UseFormRegister<FieldValues>;
-}
+};
 
 const Input = (props: InputProps) => {
   const {
@@ -27,8 +27,6 @@ const Input = (props: InputProps) => {
     label,
     register,
   } = props;
-
-  console.warn(errors, id);
 
   return (
     <div className="w-full relative">

@@ -1,15 +1,15 @@
 import { IconType } from "react-icons";
 
-interface ButtonProps {
+type ButtonProps = {
   label: string;
   onClick: () => void;
   disabled?: boolean;
   outline?: boolean;
   small?: boolean;
   icon?: IconType;
-}
+};
 
-const Button: React.FC<ButtonProps> = (props) => {
+const Button = (props: ButtonProps) => {
   const { label, onClick, disabled, outline, small, icon: Icon } = props;
 
   return (
