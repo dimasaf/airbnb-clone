@@ -5,6 +5,7 @@ import Container from "../Container";
 import Logo from "./Logo";
 import Search from "./Search";
 import UserMenu from "./UserMenu";
+import Categories from "./Categories";
 
 type Navbar = {
   currentUser?: SafeUser | null;
@@ -22,6 +23,7 @@ function Navbar({ currentUser }: Navbar) {
           </div>
         </Container>
       </div>
+      <Categories />
     </div>
   );
 }

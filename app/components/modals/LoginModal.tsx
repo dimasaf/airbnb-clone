@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
 
 import useLoginModal from "@/app/hooks/useLoginModal";
+import useRegister from "@/app/hooks/useRegisterModal";
 import Modal from "./Modal";
 import Heading from "../Heading";
 import Input from "../inputs/Input";
@@ -18,6 +19,7 @@ import Button from "../Button";
 const LoginModal = () => {
   const router = useRouter();
   const loginModal = useLoginModal();
+  const registerModal = useRegister();
   const [isLoading, setIsLoading] = useState(false);
 
   const {
@@ -98,13 +100,16 @@ const LoginModal = () => {
     "
       >
         <p>
-          Already have an account?
+          Create an account?
           <span
-            onClick={() => {}}
+            onClick={() => {
+              loginModal.onClose();
+              registerModal.onOpen();
+            }}
             className="text-neutral-800 cursor-pointer hover:underline"
           >
             {" "}
-            Log in
+            Sign Up
           </span>
         </p>
       </div>

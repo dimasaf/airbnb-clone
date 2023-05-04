@@ -9,6 +9,7 @@ import Avatar from "../Avatar";
 import MenuItem from "./MenuItem";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 import useLoginModal from "@/app/hooks/useLoginModal";
+import useRentModal from "@/app/hooks/useRentModal";
 
 type UserMenu = {
   currentUser?: SafeUser | null;
@@ -17,11 +18,22 @@ type UserMenu = {
 const UserMenu = ({ currentUser }: UserMenu) => {
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
+  const rentModal = useRentModal();
   const [isOpen, setIsOpen] = useState(false);
 
   const useToggle = useCallback(() => {
     setIsOpen((val) => !val);
   }, []);
+
+  const onRentClick = useCallback(() => {
+    if (!currentUser) {
+      return loginModal.onOpen();
+    }
+
+    rentModal.onOpen();
+
+    console.warn(rentModal.isOpen);
+  }, [currentUser, loginModal, rentModal]);
 
   return (
     <div className="relative">
@@ -48,7 +60,7 @@ const UserMenu = ({ currentUser }: UserMenu) => {
                 <MenuItem label="My favorites" onClick={() => {}} />
                 <MenuItem label="My reservations" onClick={() => {}} />
                 <MenuItem label="My properties" onClick={() => {}} />
-                <MenuItem label="Airbnb your home" onClick={() => {}} />
+                <MenuItem label="Airbnb your home" onClick={onRentClick} />
                 <hr />
                 <MenuItem label="Logout" onClick={() => signOut()} />
               </>
